@@ -1,0 +1,4 @@
+.btn-shizhan {
+  height: 100rpx;
+  width: 500rpx;
+}

@@ -1,0 +1,111 @@
+<view class='section'>
+<view style='font-size:50rpx; text-align: center;'>人机对战</view>
+  <view class='btn-area' wx:if='{{buttonif}}'>
+    <button type='primary' class='btn-shizhan' bindtap='buttonTap'>下一局</button>
+  </view>
+
+  <view style='font-size:40rpx; text-align: center; margin-top: 50rpx;'>庄家的牌，赌注：{{zjdz}}</view>
+  <view class='flex-wrp' style='flex-direction:row; font-size:80rpx; justify-content: center;'>
+    <view style='margin-right: 30rpx; margin-left: 30rpx; width: 350rpx;'>
+      <view view class='flex-wrp' style='flex-direction:row; font-size:80rpx; justify-content: center;'>
+        <view class='pokecrad' style='{{arraytext[0].co}};{{bk}}'  wx:if='{{zj1if}}'>
+          <view wx:if='{{zj2if}}'>{{arraytext[0].type}}</view>
+          <view wx:if='{{zj2if}}'>{{arraytext[0].number}}</view>
+        </view>
+        <view class='pokecrad' style='{{arraytext[1].co}};{{bk}}'  wx:if='{{zj1if}}'>
+          <view wx:if='{{zj2if}}'>{{arraytext[1].type}}</view>
+          <view wx:if='{{zj2if}}'>{{arraytext[1].number}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view style='font-size:40rpx; text-align: center; margin-top: 60rpx;'>公共牌</view>
+  <view class='flex-wrp' style='flex-direction:row; font-size:80rpx; justify-content: center;'>
+    <view class='pokecrad' style='{{arraytext[4].co}};' wx:if='{{gg1if}}'>
+      <view>{{arraytext[4].type}}</view>
+      <view>{{arraytext[4].number}}</view>
+    </view>
+    <view class='pokecrad' style='{{arraytext[5].co}}；'  wx:if='{{gg1if}}'>
+      <view>{{arraytext[5].type}}</view>
+      <view>{{arraytext[5].number}}</view>
+    </view>
+    <view class='pokecrad' style='{{arraytext[6].co}};' wx:if='{{gg1if}}'>
+      <view>{{arraytext[6].type}}</view>
+      <view>{{arraytext[6].number}}</view>
+    </view>
+    <view class='pokecrad' style='{{arraytext[7].co}};' wx:if='{{gg2if}}'>
+      <view>{{arraytext[7].type}}</view>
+      <view>{{arraytext[7].number}}</view>
+    </view>
+    <view class='pokecrad' style='{{arraytext[8].co}};' wx:if='{{gg3if}}'>
+      <view>{{arraytext[8].type}}</view>
+      <view>{{arraytext[8].number}}</view>
+    </view>
+  </view>
+
+  <view style='font-size:40rpx; text-align: center; margin-top: 50rpx;'>玩家的牌，赌注：{{wjdz}}</view>
+  <view class='flex-wrp' style='flex-direction:row; font-size:80rpx; justify-content: center;'>
+    <view wx:if='{{wjif}}'>
+      <view style='font-size:30rpx; text-align: center;'>
+        <image class='playerbotton' src='../../../resources/Call.png' bindtap='Call'></image>
+        <view>跟注</view>
+      </view>
+      <view style='font-size:30rpx; text-align: center; margin-top: 5rpx'>
+        <picker mode="multiSelector" bindchange="Raise"  value="{{multiIndex}}" range="{{multiArray}}">
+          <image class='playerbotton' src='../../../resources/Raise.png'></image>
+        </picker>
+        <view>加注</view>
+      </view>
+      <view style='font-size:30rpx; text-align: center; margin-top: 5rpx'>
+        <image class='playerbotton' src='../../../resources/Guo.png' bindtap='Guo'></image>
+        <view>过</view>
+      </view>
+    </view>
+    
+    <view style='margin-left: 30rpx; margin-right: 30rpx; width: 350rpx;'>
+      <view view class='flex-wrp' style='flex-direction:row; font-size:80rpx; justify-content: center;'>
+        <view class='pokecrad' style='{{arraytext[2].co}};' wx:if='{{wjif}}'>
+          <view >{{arraytext[2].type}}</view>
+          <view>{{arraytext[2].number}}</view>
+        </view>
+        <view class='pokecrad' style='{{arraytext[3].co}};' wx:if='{{wjif}}'>
+          <view>{{arraytext[3].type}}</view>
+          <view>{{arraytext[3].number}}</view>
+        </view>
+      </view>
+      <view style='font-size:40rpx; text-align: center;'>牌型提示</view>
+      <view style='font-size:50rpx; text-align: center;color: red;font-weight:bold;'>{{ans}}</view>
+    </view>
+
+    <view wx:if='{{wjif}}'>
+      <view style='font-size:30rpx; text-align: center;'>
+        <image class='playerbotton' src='../../../resources/Allin.png' bindtap='Allin'></image>
+        <view>全押</view>
+      </view>
+      <view style='font-size:30rpx; text-align: center; margin-top: 5rpx'>
+        <image class='playerbotton' src='../../../resources/Fold.png' bindtap='Fold'></image>
+        <view>弃牌</view>
+      </view>
+      <view style='font-size:30rpx; text-align: center; margin-top: 5rpx'>
+        <image class='playerbotton' src='../../../resources/Exit.png' bindtap='Exit'></image>
+        <view>离开</view>
+      </view>
+    </view>
+  </view>
+  
+  <view  wx:if='{{tsif}}'>
+    <view style='font-size:40rpx; text-align: center;'>
+      <view>筹码剩余：{{cm}}</view>
+    </view>
+  </view>
+
+  <modal title="结束" hidden="{{modalHidden1}}" bindconfirm="modalConfirm1" bindcancel="modalCandel">
+    <view>你还有筹码，是否进行下一牌局或返回？</view>
+  </modal>
+
+  <modal title="结束" hidden="{{modalHidden2}}" bindconfirm="modalConfirm2" bindcancel="modalCandel">
+    <view>你已经没有筹码，是否重新开始牌局或返回？</view>
+  </modal>
+
+</view>

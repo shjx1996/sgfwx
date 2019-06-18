@@ -1,0 +1,28 @@
+<view class="self-info">
+  <view style="  width:10%;height:100%"></view>
+  <view>
+    <image class="userinfo-avatar" src="{{user.avatarUrl}}"></image>
+  </view>
+  <view style="width:10%;height:100%"></view>
+  <view class="name-number" >
+    <view><text class="text-name">{{user.nickName}}</text></view>
+  </view>
+</view>
+
+<view class="view-area " >
+  <view class="view-item">
+    <view style="width:3%;height:100%"></view>
+      <view class="view-item2">
+      <text class="text-item">我的最高纪录:   {{user.jilu}}</text>
+    </view>
+    <view style="width:3%;height:100%"></view>
+  </view>
+
+  <view class="view-item" bindtap='guanyu'>
+    <view style="width:3%;height:100%"></view>
+      <view class="view-item2">
+      <text class="text-item"> 关于我们 </text>
+    </view>
+    <view style="width:3%;height:100%"></view>
+  </view>
+</view>

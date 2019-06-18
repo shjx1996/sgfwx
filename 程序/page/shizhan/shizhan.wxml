@@ -1,0 +1,7 @@
+<view class="section">
+  <view class="btn-area">
+    <button type="primary" bindtap="" class="btn-shizhan" bindtap='buttonTap' style='margin-top: 200rpx'>游戏介绍</button>
+    <button type="primary" bindtap="" class="btn-shizhan"  bindtap='gotoPage1' style='margin-top: 200rpx'>新手练习</button>
+    <button type="primary" bindtap="" class="btn-shizhan" bindtap='gotoPage2' style='margin-top: 200rpx'>人机对战</button>
+  </view>
+</view>

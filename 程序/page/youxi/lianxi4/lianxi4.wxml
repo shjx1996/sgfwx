@@ -1,0 +1,74 @@
+<view class='section'>
+<view style='font-size:70rpx; text-align: center;'>概率计算练习</view>
+
+  <view class='flex-wrp' style='flex-direction:row; font-size:80rpx; justify-content: center; margin-top: 50rpx;'                wx:if='{{wxif}}'>
+
+    <view style='margin-left: 30rpx; width: 350rpx;'>
+      <view style='font-size:40rpx; text-align: center;' wx:if='{{wxif}}'>玩家的牌</view>
+      <view class='flex-wrp' style='flex-direction:row; font-size:80rpx; justify-content: center;'>
+        <view class='pokecrad' style='{{arraytext[0].co}}'>
+          <view >{{arraytext[0].type}}</view>
+          <view>{{arraytext[0].number}}</view>
+        </view>
+        <view class='pokecrad' style='{{arraytext[1].co}}'>
+          <view>{{arraytext[1].type}}</view>
+          <view>{{arraytext[1].number}}</view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+  
+  <view style='font-size:40rpx; text-align: center; margin-top: 60rpx;' wx:if='{{wxif}}'>公共牌</view>
+  <view class='flex-wrp' style='flex-direction:row; font-size:80rpx; display: flex; justify-content: center;  ' wx:if='{{wxif}}'>
+    <view class='pokecrad' style='{{arraytext[2].co}}'>
+      <view >{{arraytext[2].type}}</view>
+      <view>{{arraytext[2].number}}</view>
+    </view>
+    <view class='pokecrad' style='{{arraytext[3].co}}'>
+      <view>{{arraytext[3].type}}</view>
+      <view>{{arraytext[3].number}}</view>
+    </view>
+    <view class='pokecrad' style='{{arraytext[4].co}}'>
+      <view>{{arraytext[4].type}}</view>
+      <view>{{arraytext[4].number}}</view>
+    </view>
+        <view class='pokecrad' style='{{arraytext[5].co}}'>
+      <view>{{arraytext[5].type}}</view>
+      <view>{{arraytext[5].number}}</view>
+    </view>
+  </view>
+
+  <view class='top' wx:if='{{wxif}}'>
+    <view class='top-text'>请选择{{rank}}的概率</view>
+    <!-- 下拉框 -->
+    <view class='top-selected' bindtap='bindShowMsg'>
+      <text>{{grade_name}}</text>
+    </view>
+    <scroll-view  scroll-y style='height: 240rpx;' class="select_box" wx:if="{{select}}">
+      <view  wx:for="{{grades}}" wx:key="unique">
+        <view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class='btn-area' style='margin-top: 50rpx;'>
+    <button type='primary' class='btn-shizhan' bindtap='button1' wx:if='{{wxif}}'>确定</button>
+  </view>
+
+  <view class='btn-area' style='margin-top: 50rpx;'>
+    <button type='primary' class='btn-shizhan' bindtap='button3' wx:if='{{wxif}}'>帮助</button>
+  </view>
+
+  <modal title="结果" hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel">
+      <view>{{answer}}</view>
+  </modal>
+
+  <view class='btn-area' style='margin-top: 100rpx;'  wx:if='{{buttonif}}'>
+    <button type='primary' class='btn-shizhan' bindtap='buttonTap'>开始</button>
+  </view>
+
+  <view class='btn-area' style='margin-top: 50rpx;'>
+    <button type='primary' class='btn-shizhan' bindtap='button2'>返回</button>
+  </view>
+</view>

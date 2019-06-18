@@ -1,0 +1,12 @@
+<scroll-view scroll-y style="height: 100%;" lower-threshold="100" bindscrolltolower="lower" class="c-minheight wx-scroll-view_6Bnkj2" >
+  <navigator wx:for="{{results}}" class="wx-navigator_movielist_item" data-c_e_id="wx_navigator_46b77b4d"                            hover-class="navigator-hover" url="../detial/detial?id={{item.objectId}}">
+    <view class="c-minheight wx-view_movilelist_item" data-c_e_id="wx_view_41e6dc0a">
+      <image class="wx-image_movielist_item_cover" data-c_e_id="wx_image_3f067087" mode="scaleToFill" src="{{item.tupian}}"              style="background-size: 100% 100%; background-position: 0% 0%; background-repeat: no-repeat; background-image:                     url({{item.tupian}}); "/>
+      <view class="c-minheight wx-view_6zMKSh" data-c_e_id="wx_view_f95254a1">
+        <text class="c-block wx-image_movielist_item_title" data-c_e_id="wx_text_00e25920">{{item.biaoti}}</text>
+        <text class="c-block wx-image_movielist_item_director" data-c_e_id="wx_text_63f36d55">上传时间:{{item.createdAt}}</text>
+        <text class="c-block wx-image_movielist_item_actors" data-c_e_id="wx_text_3b979059">简介: {{item.jianjie}}</text>
+      </view>
+    </view>
+  </navigator>
+</scroll-view>

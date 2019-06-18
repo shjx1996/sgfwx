@@ -1,0 +1,80 @@
+<view style='font-size:70rpx; text-align: center;'>如何计算概率</view>
+<view>首先，先观察自己的手牌和桌上的公共牌。</view>
+<view>然后得出自己需要哪些牌</view>
+<view style='font-size:50rpx;'>例如：</view>
+<view class='flex-wrp' style='flex-direction:row; display: flex;'>
+自己的手牌为:
+  <view class='pokecrad' style='color: black'>
+    <view >♠</view>
+    <view>5</view>
+  </view>
+  <view class='pokecrad' style='color: black'>
+    <view>♣</view>
+    <view>6</view>
+  </view>
+</view>
+<view class='flex-wrp' style='flex-direction:row; display: flex;'>
+场上的公共牌为:
+  <view class='pokecrad' style='color: black'>
+    <view >♠</view>
+    <view>7</view>
+  </view>
+  <view class='pokecrad' style='color: red'>
+    <view>♥</view>
+    <view>6</view>
+  </view>
+  <view class='pokecrad' style='color: black'>
+    <view>♣</view>
+    <view>A</view>
+  </view>
+</view>
+<view>可以看出已经组成一个一对的牌型了，那么如果要组成两对的牌型则需要以下牌中的任意一张：</view>
+<view>所有花色的5，所有花色的7和所有花色的A，这些牌一共有9张，那么第四张公共牌出现这9张牌的概率就是9/47。</view>
+<view class='flex-wrp' style='flex-direction:row; display: flex;'>
+  <view class='pokecrad' style='color: black'>
+    <view >♣</view>
+    <view>7</view>
+  </view>
+  <view class='pokecrad' style='color: red'>
+    <view>♦</view>
+    <view>7</view>
+  </view>
+  <view class='pokecrad' style='color: red'>
+    <view>♥</view>
+    <view>7</view>
+  </view>
+    <view class='pokecrad' style='color: black'>
+    <view>♠</view>
+    <view>A</view>
+  </view>
+    <view class='pokecrad' style='color: red'>
+    <view>♦</view>
+    <view>A</view>
+  </view>
+</view>
+<view class='flex-wrp' style='flex-direction:row; display: flex;' >
+  <view class='pokecrad' style='color: red'>
+    <view >♥</view>
+    <view>A</view>
+  </view>
+  <view class='pokecrad' style='color: red'>
+    <view>♦</view>
+    <view>6</view>
+  </view>
+  <view class='pokecrad' style='color: black'>
+    <view>♣</view>
+    <view>6</view>
+  </view>
+    <view class='pokecrad' style='color: black'>
+    <view>♠</view>
+    <view>6</view>
+  </view>
+</view>
+<view>如果第四张公共牌牌没有发出这就张牌中的一张，那么第五张公共牌出现这9张牌的概率就是9/46</view>
+<view>因为是计算组成两对的牌型，所以如果第四张公共牌发出了9张中的一张，则第五张公共牌不能发出9张牌中的其余八张牌</view>
+<view>所以最后组成两对牌型的概率为<text style='color: red'>(9/47)*(38/46)+(38/47)*(9/46)=31.6%</text></view>
+<view>同理如果要组成顺子牌型的话则需要所有花色的4中的一张和所有花色的8中的一张</view>
+<view>概率为<text style='color: red'>(8/47)*(4/46)=1.4%</text></view>
+<view style='font-size:50rpx;'>简化运算</view>
+<view>如果按照上述方式进行计算，虽然结果精确，但计算过于麻烦，难以让初学者实际使用，于是我们可以将上述过程进行简化</view>
+<view>例如场上有三张公共牌，我们需要<text style='color: red'>m张牌中的一张牌</text>根据上述套入上述公式的话即为(m/47)*((47-m)/46)+(47-m/47)*(m/46)，我们可以将这个公式进行一个近似运算，将公式变为<text style='color: red'>(m/50)+(m/50)=4m%</text>,在上述例子中使用简化公式得出的概率为36%和31.6%相近。</view>

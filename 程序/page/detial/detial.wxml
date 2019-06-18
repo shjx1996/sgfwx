@@ -1,0 +1,78 @@
+<view class="c-minheight wx-view_movie_top" data-c_e_id="wx_view_d4d10454">
+    <video src="{{row.shipin}}" binderror="videoErrorCallback"></video>
+</view>
+<view class="c-minheight wx-view_movie_info" data-c_e_id="wx_view_22939a03">
+  <view class="c-minheight wx-view_movie_score" data-c_e_id="wx_view_3d6933f0" wx:if='{{wxif}}' bindtap='botton1'>
+    <text class="c-block wx-text_score_value" data-c_e_id="wx_text_20ab13fe">{{row.tuijianshu}}</text>
+    <text class="c-block wx-text_score_uv" data-c_e_id="wx_text_b439aa5b">推荐</text>
+  </view>
+
+  <view class="c-minheight wx-view_movie_score" data-c_e_id="wx_view_3d6933f0" wx:if='{{!wxif}}' style='background-color:coral' bindtap='botton2'>
+    <text class="c-block wx-text_score_value" data-c_e_id="wx_text_20ab13fe">{{row.tuijianshu}}</text>
+    <text class="c-block wx-text_score_uv" data-c_e_id="wx_text_b439aa5b">已推荐</text>
+  </view>
+
+  <text class="c-block wx-text_title" data-c_e_id="wx_text_55c207ca">{{row.biaoti}}
+    <br/>
+  </text>
+
+  <text class="c-block wx-text_description" data-c_e_id="wx_text01771f14">作者：{{row.zuozhe}}</text>
+  <text class="c-block wx-text_description" data-c_e_id="wx_textf1b12ef8">上传时间: {{row.createdAt}}</text>
+
+</view>
+
+<view class="c-minheight wx-view_section" data-c_e_id="wx_view_a0074c12">
+
+  <text class="c-block wx-text_description" data-c_e_id="wx_text7bc03bd3">视频简介</text>
+  <text class="c-block wx-text_content" data-c_e_id="wx_text_7c13baf3">{{row.jianjie}}</text>
+
+  <button class="wx-button_expand" data-c_e_id="wx_button_2a7a52be" hover-class="button-hover" plain="True" size="mini"              type="default">展开</button>
+
+</view>
+
+<view class="c-minheight wx-view_section" data-c_e_id="wx_view_1295b15a">
+  <text class="c-block wx-text_section_title" data-c_e_id="wx_text3a248639">短评</text>
+  <view wx:for="{{results}}" class="commentlistitem" data-c_e_id="wx_view_16d0f86f">
+    <navigator class="nav_userlink" data-c_e_id="wx_navigator2ffed891" hover-class="navigator-hover">
+      <view class="likeuser fm2" style="background-image:url({{item.own.userPic}})" data-c_e_id="wx_viewd34d457a" />
+    </navigator>
+    <view class="c-minheight wx-view_WnUrtw" data-c_e_id="wx_view_66505bdf">
+      <view class="wx-view_F9ISUC" data-c_e_id="wx_view27217bec">
+        <navigator class="wx-navigator_wTcTS2" data-c_e_id="wx_navigator70eae9f8" hover-class="navigator-hover">
+          <text class="wx-text_71u3gA" data-c_e_id="wx_text5fe6919d"> {{item.own.nickName}} </text>
+        </navigator>
+        <view class="wx-view_wrkAD7" data-c_e_id="wx_view_53be94ea">
+          <image class="wx-image_YoXk15" data-c_e_id="wx_image_d1caf161"                                                                     src="http://qty83k.creatby.com/materials/origin/53a095f5786a4f0e1e50eea5ec5c84bc_origin.png"/> 
+        </view>
+      </view>
+      <text class="c-block wx-text_kGXxsa" data-c_e_id="wx_text_39bacddb"> {{item.neirong}}</text>
+      <view class="comment_operate" data-c_e_id="wx_view_cf5ce19f">
+        <view class="wx-view_h6iSr9" data-c_e_id="wx_view3a8d0d4f">
+          <view class="commentlikebtn" data-c_e_id="wx_viewb3b5b6f1">
+            <image class="wx-image_YoXk15" data-c_e_id="wx_image0736d1e2"                                                                      src="http://qty83k.creatby.com/materials/origin/2459ad45d8071985f1cf7f91f3b3df66_origin.png"/>
+          </view>
+          <view class="commentreplybtn" data-c_e_id="wx_view9909114c">
+            <image class="wx-image_YoXk15" data-c_e_id="wx_imagef86ae815"                                                                      src="http://qty83k.creatby.com/materials/origin/0564a45ab780222757935674e13d6919_origin.png"/>
+          </view>
+        </view>
+        <text class="listitem_creattime" data-c_e_id="wx_text8c8804b3"> {{item.createdAt}} </text>
+      </view>
+    </view>
+  </view>
+  <button bindtap="tap_277327c4" class="wx-button_zkPe8y" data-c_act_id="M_4789519541aba7eb" data-c_e_id="wx_button_4a8d9157"
+  hover-class="button-hover" size="default" type="default">写评论</button>
+</view>
+
+<view bindtap="tap_3ec69114" class="modalview {{wx_view_74a0d568.class}}" data-c_e_id="wx_view_74a0d568">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view bindtap="tap_22930b74" class="wx-view_m9HByj" data-c_e_id="wx_view_5a2e85c5">
+      <view class="bottomGrayboder wx-view_vLuOu2" data-c_e_id="wx_view9b1b510b">
+        <view bindtap="tap_e2bd485d" class="_other_text_d8PEVm" data-c_act_id="M_d4583e5c07d1582f"                                         data-c_e_id="_other_texta33bfdda">×
+        </view>
+      </view>
+      <input class="bottomGrayboder wx-input_olF6xn" data-c_e_id="wx_input_ec92228b" name="content" placeholder="请输入点评"             placeholder-class="placeholderstyle"type="text" />
+      <button bindtap="tap_d6c84484" class="wx-button_V2eIJ4" data-c_act_id="M_17d89e86c5b99fa2" data-c_e_id="wx_button_84416317"
+      hover-class="button-hover" size="mini" formType="submit">点 评</button>
+    </view>
+  </form>
+</view>

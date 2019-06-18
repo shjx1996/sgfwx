@@ -1,0 +1,15 @@
+/* page/youxi/lianxi4/bangzhu.wxss */
+.pokecrad {
+ height: 250rpx;
+ width: 150rpx;
+ border-radius: 5px;
+ margin-left: 20rpx;
+ margin-right: 20rpx;
+ line-height: 125rpx;
+ background: powderblue;
+ border-width: 1rpx;  
+ border-color: black;  
+ border-style: solid;  
+ text-align: center;
+ font-size:80rpx;
+}
